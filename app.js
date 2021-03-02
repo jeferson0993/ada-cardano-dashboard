@@ -3,7 +3,7 @@ let date = new Date(), past_day, low = 999, high = 0, _low = 0, _high = 0, arr =
 (function () {
     for (let index = 6; index >= 0; index--) {
         if (Number(date.getDate()) - index <= 0) {
-            past_day = Number(date.getDate()) - index + 30 + '-' + Number(date.getMonth() - 1) + '-' + Number(date.getFullYear());
+            past_day = Number(date.getDate()) - index + 30 + '-' + Number(date.getMonth()) + '-' + Number(date.getFullYear());
         } else {
             past_day = Number(date.getDate()) - index + '-' + Number(date.getMonth() + 1) + '-' + Number(date.getFullYear());
         }

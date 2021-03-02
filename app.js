@@ -2,11 +2,11 @@ let date = new Date(), past_day, low = 999, high = 0, _low = 0, _high = 0, arr =
 
 (function () {
     for (let index = 6; index >= 0; index--) {
-        if (Number(date.getDate()) - index <= 0) {
-            past_day = Number(date.getDate()) - index + 30 + '-' + Number(date.getMonth()) + '-' + Number(date.getFullYear());
-        } else {
-            past_day = Number(date.getDate()) - index + '-' + Number(date.getMonth() + 1) + '-' + Number(date.getFullYear());
-        }
+        
+        var dt = new Date();
+        dt.setDate( dt.getDate() - index );
+        past_day = dt.getDate() + '-' + Number(dt.getMonth() + 1) + '-' + dt.getFullYear();        
+
         labels.push(past_day);
 
         fetch(`https://api.coingecko.com/api/v3/coins/cardano/history?date=${past_day}&localization=false`)
